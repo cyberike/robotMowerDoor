@@ -33,7 +33,7 @@ void setup() {
 
   pinMode(speakerPin, OUTPUT); // Set the speaker pin as output
   pinMode(lockPin, OUTPUT); // Set the lock pin as output
-  digitalWrite(lockPin, HIGH); // Initially, the lock is locked
+ // digitalWrite(lockPin, HIGH); // Initially, the lock is locked
 }
 
 void loop() {
@@ -57,7 +57,9 @@ void loop() {
         analogWrite(speakerPin, 128, 500); // Play a 20Hz tone
         delay(2000);
         analogWrite(speakerPin, 0, 500); // Stop the tone
-        digitalWrite(lockPin, LOW); // Unlock the lock
+        digitalWrite(lockPin, HIGH); // Unlock the lock
+        delay (10000);
+        digitalWrite(lockPin, LOW); // Lock the lock
       }
 
       Serial.print("Data read(HEX):");
